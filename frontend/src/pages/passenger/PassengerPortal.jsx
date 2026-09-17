@@ -29,7 +29,14 @@ export default function PassengerPortal() {
   useEffect(() => { load(); }, []);
   useEffect(() => { setPage(routePage); setDrawer(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }, [routePage]);
   const navigate = (nextPage) => { const paths = { home: '/', cruises: '/cruises', activities: '/activities', registrations: '/my-bookings', profile: '/profile', login: '/login', register: '/register', 'check-in': '/check-in', itinerary: '/itinerary', services: '/services', feedback: '/support' }; if (paths[nextPage]) routerNavigate(paths[nextPage]); else setPage(nextPage); setDrawer(false); window.scrollTo({ top: 0, behavior: 'smooth' }); };
-  const authenticatedUser = JSON.parse(localStorage.getItem('oceanflow_passenger_user') || 'null'); const storedPassenger = JSON.parse(localStorage.getItem('oceanflow_passenger') || 'null'); const isAuthenticated = Boolean(localStorage.getItem('oceanflow_passenger_token')); const currentPassenger = isAuthenticated ? storedPassenger : data.passengers[0]; const account = data.accounts.find((x) => x.passenger_id === currentPassenger?.id) || data.accounts[0];
+  const authenticatedUser = JSON.parse(localStorage.getItem('oceanflow_passenger_user') || 'null'); const storedPassenger = JSON.parse(localStorage.getItem('oceanflow_passenger') || 'null'); const isAuthenticated = Boolean(localStorage.getItem('oceanflow_passenger_token')); const currentPassenger = isAuthenticated
+  ? storedPassenger
+  : Array.isArray(data.passengers)
+    ? data.passengers[0]
+    : null;
+
+const accounts = Array.isArray(data.accounts) ? data.accounts : [];
+const account = accounts.find((x) => x?.passenger_id === currentPassenger?.id) || accounts[0];
   return <div className="pw-home"><PassengerHeader currentPage={page} isOpen={drawer} onToggle={() => setDrawer(!drawer)} /><main className="pw-main">{error && <div className="passenger-alert">{error}</div>}{loading ? <Loading /> : <Page page={page} data={data} account={account} passenger={currentPassenger} authenticatedUser={authenticatedUser} isAuthenticated={isAuthenticated} navigate={navigate} reload={load} selectedTour={selectedTour} onSelectTour={setSelectedTour} />}</main>{page === 'home' && <PassengerFooter onNavigate={navigate} />}</div>;
 }
 function Loading() { return <div className="passenger-loading"><RefreshCw size={22} /><strong>Đang tải thông tin chuyến đi...</strong><span>Dữ liệu được lấy từ OceanFlow.</span></div>; }
