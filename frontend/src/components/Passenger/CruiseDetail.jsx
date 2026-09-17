@@ -1,0 +1,13 @@
+import React from 'react';
+import { ArrowLeft, CalendarDays, CheckCircle2, Clock3, Ship } from 'lucide-react';
+import './PassengerBooking.css';
+
+const date = (value) => value ? new Date(value).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }) : 'Đang cập nhật';
+const statusText = { planned: 'Đang lên kế hoạch', active: 'Đang khai thác', completed: 'Đã hoàn thành', cancelled: 'Đã hủy', scheduled: 'Đã lên lịch' };
+
+export default function CruiseDetail({ tour, itineraries, days, onBack, onContinue }) {
+  if (!tour) return <div className="pw-empty"><h2>Không tìm thấy chuyến đi</h2><p>Chuyến du thuyền này không còn trong dữ liệu hiện tại.</p><button className="pw-button pw-button-primary" onClick={onBack}>Quay lại danh sách</button></div>;
+  const itineraryIds = itineraries.filter((itinerary) => itinerary.cruise_tour_id === tour.id).map((itinerary) => itinerary.id);
+  const itinerary = days.filter((day) => itineraryIds.includes(day.itinerary_id)).sort((a, b) => a.day_number - b.day_number);
+  return <section className="pw-booking-view"><button className="pw-text-button" onClick={onBack}><ArrowLeft size={16} /> Quay lại chuyến đi</button><div className="pw-detail-hero"><div><span className="pw-eyebrow"><Ship size={15} /> CHI TIẾT HÀNH TRÌNH</span><h1>{tour.name}</h1><p>{tour.ship || 'Tên tàu đang cập nhật'} · Điểm đến đang cập nhật</p></div><span className="pw-status planned">{statusText[tour.status] || tour.status || 'Đang cập nhật'}</span></div><div className="pw-detail-grid"><div className="pw-detail-facts"><div><CalendarDays size={18} /><small>Khởi hành</small><strong>{date(tour.start_date)}</strong></div><div><CalendarDays size={18} /><small>Kết thúc</small><strong>{date(tour.end_date)}</strong></div><div><Clock3 size={18} /><small>Lịch trình</small><strong>{itinerary.length ? `${itinerary.length} ngày` : 'Đang cập nhật'}</strong></div></div><div className="pw-detail-itinerary"><span className="pw-eyebrow">LỊCH TRÌNH</span><h2>Đi qua những ngày đáng nhớ</h2>{itinerary.length ? itinerary.map((day) => <div className="pw-detail-day" key={day.id}><b>Ngày {day.day_number}</b><span>{date(day.service_date)}</span></div>) : <p className="pw-muted-text">Lịch trình chi tiết sẽ được cập nhật sau.</p>}</div></div><button className="pw-button pw-button-primary" onClick={onContinue} disabled={tour.status === 'cancelled' || tour.status === 'completed'}>{tour.status === 'cancelled' || tour.status === 'completed' ? 'Chuyến không nhận booking' : 'Tiếp tục đặt chuyến'} <CheckCircle2 size={17} /></button></section>;
+}

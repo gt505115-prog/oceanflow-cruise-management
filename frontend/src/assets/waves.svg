@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" width="1440" height="90" preserveAspectRatio="none" role="img" aria-label="Decorative sea waves">
+  <path d="M0,50 C120,30 240,70 360,55 C480,40 600,20 720,40 C840,60 960,75 1080,55 C1200,35 1320,45 1440,38 L1440,90 L0,90 Z" fill="#0a4a63" opacity="0.9"/>
+  <path d="M0,62 C140,45 280,80 420,66 C560,52 700,40 840,58 C980,74 1120,80 1260,66 C1340,59 1400,64 1440,60 L1440,90 L0,90 Z" fill="#0788a8" opacity="0.8"/>
+  <path d="M0,74 C150,62 320,86 480,74 C640,62 800,58 960,70 C1120,82 1280,84 1440,74 L1440,90 L0,90 Z" fill="#0d5f78" opacity="0.9"/>
+</svg>

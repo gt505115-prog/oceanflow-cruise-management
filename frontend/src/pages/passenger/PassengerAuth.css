@@ -1,0 +1,41 @@
+.pw-auth-page{position:relative;min-height:100vh;overflow:hidden;display:grid;place-items:center;padding:42px 20px;background:linear-gradient(150deg,#0a2540 0%,#0d3a54 45%,#0788a8 100%)}
+.pw-auth-page .pw-auth-visual{position:absolute;inset:0;z-index:0;overflow:hidden}
+.pw-auth-visual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.pw-auth-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(7,19,33,.94) 0%,rgba(9,37,56,.78) 46%,rgba(8,47,66,.55) 100%)}
+.pw-auth-visual-copy{position:absolute;z-index:1;left:clamp(22px,6vw,90px);bottom:clamp(24px,6vh,64px);max-width:460px;color:#fff}
+.pw-auth-visual-copy .pw-eyebrow{color:#b9eef5}
+.pw-auth-visual-copy h2{margin:12px 0 8px;font-size:clamp(22px,4vw,34px);line-height:1.15;letter-spacing:-.03em}
+.pw-auth-visual-copy p{margin:0;color:#dbeff4;font-size:14px;line-height:1.6}
+.pw-auth-card{position:relative;z-index:2;width:min(440px,100%);padding:34px 30px;border:1px solid rgba(255,255,255,.55);border-radius:24px;background:rgba(255,255,255,.96);box-shadow:0 30px 70px rgba(4,16,28,.4);backdrop-filter:blur(10px)}
+.pw-auth-brand{display:flex;align-items:center;gap:11px;margin-bottom:22px;color:#102a43;font-weight:850;letter-spacing:.1em}
+.pw-auth-brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#11a4c8,#087ea4);color:#fff;box-shadow:0 8px 18px rgba(8,126,164,.28)}
+.pw-auth-card h1{margin:0;color:#102a43;font-size:26px;letter-spacing:-.03em}
+.pw-auth-card>p{margin:9px 0 22px;color:#6b8296;font-size:13px;line-height:1.55}
+.pw-auth-form{display:grid;gap:15px}
+.pw-auth-form label{display:grid;gap:7px;color:#557184;font-size:12px;font-weight:750}
+.pw-auth-form input{width:100%;padding:12px 13px;border:1px solid #c8dbe7;border-radius:11px;background:#fff;color:#102a43;font-size:13px}
+.pw-auth-form input:focus{outline:0;border-color:#41b3cf;box-shadow:0 0 0 3px rgba(17,164,200,.12)}
+.pw-auth-password{position:relative}
+.pw-auth-password input{padding-right:44px}
+.pw-auth-password button{position:absolute;right:8px;top:7px;padding:5px;border:0;background:transparent;color:#7895a5}
+.pw-auth-submit{width:100%}
+.pw-auth-secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 14px;border:1px solid #c8dbe7;border-radius:11px;background:#f8fbfd;color:#31566b;font-size:13px;font-weight:750}
+.pw-auth-secondary:hover{background:#e8f7fb;color:#087ea4}
+.pw-auth-divider{display:flex;align-items:center;gap:10px;margin:17px 0;color:#91a7b4;font-size:11px}
+.pw-auth-divider:before,.pw-auth-divider:after{content:"";height:1px;flex:1;background:#dfeaf1}
+.pw-auth-switch{text-align:center;margin:20px 0 0;color:#7895a5;font-size:12px}
+.pw-auth-switch a{color:#087ea4;font-weight:750;text-decoration:none}
+.pw-auth-status{display:flex;gap:8px;padding:11px 12px;margin-bottom:15px;border-radius:11px;font-size:12px}
+.pw-auth-status.error{border:1px solid #f1c3c7;background:#fff4f4;color:#c44752}
+.pw-auth-status.success{border:1px solid #bce6d8;background:#effbf7;color:#138a68}
+.pw-auth-note{padding:11px 13px;border:1px solid #dfeaf1;border-radius:11px;background:#f8fbfd;color:#7895a5;font-size:11px;line-height:1.55}
+.pw-auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pw-auth-check{display:flex!important;flex-direction:row!important;align-items:center;gap:8px;font-weight:600!important}
+.pw-auth-check input{width:auto!important}
+.pw-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border:1px solid transparent;border-radius:11px;background:#087ea4;color:#fff;font-size:13px;font-weight:780}
+.pw-button-primary{border-color:#087ea4;background:linear-gradient(90deg,#087ea4,#11a4c8);box-shadow:0 8px 18px rgba(8,126,164,.22)}
+.pw-button-primary:hover{filter:brightness(1.05)}
+.pw-button-quiet{border:1px solid #d0e0e9;color:#5e7c8e;background:#fff}
+.pw-button-small{min-height:31px;padding:0 12px;font-size:11px}
+.pw-text-button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:#087ea4;font-weight:780}
+@media(max-width:620px){.pw-auth-page{padding:24px 14px}.pw-auth-visual-copy{display:none}.pw-auth-card{padding:24px 20px;border-radius:20px}}

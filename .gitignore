@@ -1,0 +1,10 @@
+﻿.venv/
+__pycache__/
+*.pyc
+BE/_pyc_final/
+BE/instance/
+*.db
+node_modules/
+frontend/dist/
+.env
+_grep_out.txt
